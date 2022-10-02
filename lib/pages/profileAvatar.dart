@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({Key key}) : super(key: key);
+class ProfileAvatar extends StatefulWidget {
+  const ProfileAvatar({Key key}) : super(key: key);
 
   @override
-  State<Profile> createState() => _ProfileState();
+  State<ProfileAvatar> createState() => _ProfileAvatarState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfileAvatarState extends State<ProfileAvatar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

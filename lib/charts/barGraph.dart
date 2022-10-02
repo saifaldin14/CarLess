@@ -49,7 +49,6 @@ class _BarChartSample7State extends State<BarChartSample7> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white,
       elevation: 4,
       child: Padding(
         padding: const EdgeInsets.all(24),
