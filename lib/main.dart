@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:goldenhack/charts/progress.dart';
 import 'package:goldenhack/directions_model.dart';
 import 'package:goldenhack/directions_repository.dart';
-import 'package:goldenhack/profile.dart';
+import 'package:goldenhack/profileAvatar.dart';
 import 'package:goldenhack/slidingView.dart';
 import 'package:goldenhack/stats.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
