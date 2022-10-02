@@ -8,19 +8,20 @@ class SlidingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(10.0),
-      height: 140.0,
+      height: 80.0,
       child: ListView.separated(
-        itemCount: 10,
+        itemCount: 3,
         separatorBuilder: (BuildContext context, int index) {
           return SizedBox(
-            width: 10,
+            width: 20,
           );
         },
-        itemBuilder: (_, i) => IconButton(
-          onPressed: () {},
-          icon: Icon(MdiIcons.home),
-          color: Colors.blueAccent,
-        ),
+        itemBuilder: (_, i) => ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.grey,
+              shape: CircleBorder(),
+            )),
         scrollDirection: Axis.horizontal,
       ),
     );

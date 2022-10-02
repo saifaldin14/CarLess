@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:goldenhack/widget/appbar_widget.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
 
 class ProfileAvatar extends StatefulWidget {
-  const ProfileAvatar({Key key}) : super(key: key);
+  final String assetPath;
+  const ProfileAvatar({Key key, this.assetPath}) : super(key: key);
 
   @override
   State<ProfileAvatar> createState() => _ProfileAvatarState();
@@ -12,20 +14,11 @@ class _ProfileAvatarState extends State<ProfileAvatar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("Profile"),
-        leading: BackButton(
-          color: Colors.white,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
+      appBar: buildAppBar(context),
       body: Padding(
           padding: EdgeInsets.all(20),
           child: ModelViewer(
-            src: 'assets/Xbot.glb',
+            src: widget.assetPath,
             backgroundColor: Colors.white,
             autoPlay: true,
             autoRotate: true,

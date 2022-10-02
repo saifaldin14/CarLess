@@ -97,14 +97,49 @@ class _MapScreenState extends State<MapScreen> {
                     ),
                   ],
                 ),
-                SlidingView(),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (ctx) => Stats()));
-                    },
-                    child: Text("Level")),
-                ProgressBarGradient()
+                Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Column(
+                          children: [
+                            Text(
+                              'Favourite Places',
+                              style: TextStyle(fontSize: 20.0),
+                            ),
+                            SlidingView()
+                          ],
+                        ))),
+                Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Column(children: [
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => Stats()),
+                                );
+                              },
+                              child: Text(
+                                'Current Level: 5',
+                                style: TextStyle(fontSize: 20.0),
+                              )),
+                          ProgressBarGradient(),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              '600 / 750 points',
+                              textAlign: TextAlign.right,
+                              style: TextStyle(fontSize: 15.0),
+                            ),
+                          ),
+                        ]))),
               ],
             ),
             body: Stack(
