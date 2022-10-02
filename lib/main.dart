@@ -5,6 +5,7 @@ import 'package:goldenhack/slidingView.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:simple_progress_indicators/simple_progress_indicators.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -92,6 +93,27 @@ class _MapScreenState extends State<MapScreen> {
       body: SlidingUpPanel(
         panel: Column(
           children: [
+            Row(
+              children: [
+                IconButton(onPressed: () {}, icon: Icon(Icons.person)),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.search),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          filled: true,
+                          hintStyle: TextStyle(color: Colors.grey[800]),
+                          hintText: "Type in your text",
+                          fillColor: Colors.white70),
+                    ),
+                  ),
+                ),
+              ],
+            ),
             SlidingView(),
             Padding(
               padding: const EdgeInsets.all(20),

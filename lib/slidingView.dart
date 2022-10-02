@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:goldenhack/avatar.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class SlidingView extends StatelessWidget {
   const SlidingView({Key key}) : super(key: key);
@@ -16,7 +16,11 @@ class SlidingView extends StatelessWidget {
             width: 10,
           );
         },
-        itemBuilder: (_, i) => Avatar(),
+        itemBuilder: (_, i) => IconButton(
+          onPressed: () {},
+          icon: Icon(MdiIcons.home),
+          color: Colors.blueAccent,
+        ),
         scrollDirection: Axis.horizontal,
       ),
     );
