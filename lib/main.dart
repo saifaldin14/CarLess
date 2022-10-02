@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:goldenhack/directions_model.dart';
 import 'package:goldenhack/directions_repository.dart';
+import 'package:goldenhack/slidingView.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 void main() {
   runApp(MyApp());
@@ -86,61 +88,66 @@ class _MapScreenState extends State<MapScreen> {
             )
         ],
       ),
-      body: Stack(
-        alignment: Alignment.center,
-        children: [
-          GoogleMap(
-            myLocationButtonEnabled: false,
-            zoomControlsEnabled: false,
-            initialCameraPosition: _initialCameraPosition,
-            onMapCreated: (controller) => _googleMapController = controller,
-            markers: {
-              if (_origin != null) _origin,
-              if (_destination != null) _destination
-            },
-            polylines: {
-              if (_origin != null && _destination != null)
-                Polyline(
-                  polylineId: const PolylineId('overview_polyline'),
-                  color: Colors.red,
-                  width: 5,
-                  points: [
-                    _origin.position,
-                    _destination.position,
-                  ],
-                ),
-            },
-            onLongPress: _addMarker,
-          ),
-          if (_info != null)
-            Positioned(
-              top: 20.0,
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 6.0,
-                  horizontal: 12.0,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.yellowAccent,
-                  borderRadius: BorderRadius.circular(20.0),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black26,
-                      offset: Offset(0, 2),
-                      blurRadius: 6.0,
-                    )
-                  ],
-                ),
-                child: Text(
-                  '${_info.totalDistance}, ${_info.totalDuration}',
-                  style: const TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.w600,
+      body: SlidingUpPanel(
+        panel: Stack(
+          children: [SlidingView()],
+        ),
+        body: Stack(
+          alignment: Alignment.center,
+          children: [
+            GoogleMap(
+              myLocationButtonEnabled: false,
+              zoomControlsEnabled: false,
+              initialCameraPosition: _initialCameraPosition,
+              onMapCreated: (controller) => _googleMapController = controller,
+              markers: {
+                if (_origin != null) _origin,
+                if (_destination != null) _destination
+              },
+              polylines: {
+                if (_origin != null && _destination != null)
+                  Polyline(
+                    polylineId: const PolylineId('overview_polyline'),
+                    color: Colors.red,
+                    width: 5,
+                    points: [
+                      _origin.position,
+                      _destination.position,
+                    ],
+                  ),
+              },
+              onLongPress: _addMarker,
+            ),
+            if (_info != null)
+              Positioned(
+                top: 20.0,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 6.0,
+                    horizontal: 12.0,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.yellowAccent,
+                    borderRadius: BorderRadius.circular(20.0),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black26,
+                        offset: Offset(0, 2),
+                        blurRadius: 6.0,
+                      )
+                    ],
+                  ),
+                  child: Text(
+                    '${_info.totalDistance}, ${_info.totalDuration}',
+                    style: const TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ),
-            ),
-        ],
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColor,
