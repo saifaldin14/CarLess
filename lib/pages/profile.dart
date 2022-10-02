@@ -22,7 +22,7 @@ class _ProfileState extends State<Profile> {
     return ThemeSwitchingArea(
       child: Builder(
         builder: (context) => Scaffold(
-          appBar: buildAppBar(context),
+          appBar: buildAppBar(context, 'Profile'),
           body: ListView(
             physics: BouncingScrollPhysics(),
             children: [

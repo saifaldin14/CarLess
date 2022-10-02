@@ -22,7 +22,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Widget build(BuildContext context) => ThemeSwitchingArea(
         child: Builder(
           builder: (context) => Scaffold(
-            appBar: buildAppBar(context),
+            appBar: buildAppBar(context, 'Edit Profile'),
             body: ListView(
               padding: EdgeInsets.symmetric(horizontal: 32),
               physics: BouncingScrollPhysics(),

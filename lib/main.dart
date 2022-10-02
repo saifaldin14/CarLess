@@ -9,6 +9,7 @@ import 'package:goldenhack/slidingView.dart';
 import 'package:goldenhack/pages/stats.dart';
 import 'package:goldenhack/themes.dart';
 import 'package:goldenhack/utils/user_preferences.dart';
+import 'package:goldenhack/widget/appbar_header_widget.dart';
 import 'package:goldenhack/widget/appbar_widget.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -67,7 +68,7 @@ class _MapScreenState extends State<MapScreen> {
     return ThemeSwitchingArea(
       child: Builder(
         builder: (context) => Scaffold(
-          appBar: buildAppBar(context),
+          appBar: buildAppBarHeader(context, 'CarLess'),
           body: SlidingUpPanel(
             panel: Column(
               children: [
@@ -81,7 +82,7 @@ class _MapScreenState extends State<MapScreen> {
                         icon: Icon(Icons.person)),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(15),
                         child: TextField(
                           decoration: InputDecoration(
                               prefixIcon: Icon(Icons.search),
@@ -102,7 +103,7 @@ class _MapScreenState extends State<MapScreen> {
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                     child: Padding(
-                        padding: EdgeInsets.all(20),
+                        padding: EdgeInsets.all(15),
                         child: Column(
                           children: [
                             Text(
@@ -117,7 +118,7 @@ class _MapScreenState extends State<MapScreen> {
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                     child: Padding(
-                        padding: EdgeInsets.all(20),
+                        padding: EdgeInsets.all(15),
                         child: Column(children: [
                           GestureDetector(
                               onTap: () {

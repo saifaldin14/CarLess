@@ -14,7 +14,7 @@ class Stats extends StatelessWidget {
     return ThemeSwitchingArea(
         child: Builder(
             builder: (context) => Scaffold(
-                appBar: buildAppBar(context),
+                appBar: buildAppBar(context, 'Stats'),
                 body: Padding(
                     padding: EdgeInsets.all(20),
                     child: ListView(children: [

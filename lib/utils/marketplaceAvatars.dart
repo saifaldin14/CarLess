@@ -4,7 +4,6 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 class MarketPlaceAvatars extends StatelessWidget {
   const MarketPlaceAvatars({Key key}) : super(key: key);
-  // 'assets/cute1.glb'
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -18,8 +17,9 @@ class MarketPlaceAvatars extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (ctx) =>
-                              ProfileAvatar(assetPath: 'assets/cute1.glb')));
+                          builder: (ctx) => ProfileAvatar(
+                              assetPath: 'assets/cute1.glb',
+                              assetName: 'Angry Blob')));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
@@ -33,8 +33,9 @@ class MarketPlaceAvatars extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (ctx) =>
-                              ProfileAvatar(assetPath: 'assets/cute2.glb')));
+                          builder: (ctx) => ProfileAvatar(
+                              assetPath: 'assets/cute2.glb',
+                              assetName: 'Broken Heart')));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.pink,
@@ -48,8 +49,9 @@ class MarketPlaceAvatars extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (ctx) =>
-                              ProfileAvatar(assetPath: 'assets/cute3.glb')));
+                          builder: (ctx) => ProfileAvatar(
+                              assetPath: 'assets/cute3.glb',
+                              assetName: 'Smiley Blues')));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.teal,
@@ -63,8 +65,9 @@ class MarketPlaceAvatars extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (ctx) =>
-                              ProfileAvatar(assetPath: 'assets/cute1.glb')));
+                          builder: (ctx) => ProfileAvatar(
+                              assetPath: 'assets/cute1.glb',
+                              assetName: 'Angry Blob')));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.yellow,
@@ -78,8 +81,9 @@ class MarketPlaceAvatars extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (ctx) =>
-                              ProfileAvatar(assetPath: 'assets/cute1.glb')));
+                          builder: (ctx) => ProfileAvatar(
+                              assetPath: 'assets/cute1.glb',
+                              assetName: 'Angry Blob')));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,

@@ -15,13 +15,13 @@ class MarketPlace extends StatelessWidget {
     return ThemeSwitchingArea(
         child: Builder(
             builder: (context) => Scaffold(
-                appBar: buildAppBar(context),
+                appBar: buildAppBar(context, 'Avatar Market Place'),
                 body: Padding(
                     padding: EdgeInsets.all(20),
                     child: Column(children: [
                       Text(
                         'Select your Avatar',
-                        style: TextStyle(fontSize: 48.0),
+                        style: TextStyle(fontSize: 36.0),
                       ),
                       Expanded(child: MarketPlaceAvatars())
                     ])))));

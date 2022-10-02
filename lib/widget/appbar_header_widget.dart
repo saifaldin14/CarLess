@@ -7,12 +7,11 @@ import 'package:goldenhack/themes.dart';
 import 'package:goldenhack/utils/user_preferences.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-AppBar buildAppBar(BuildContext context, String title) {
+AppBar buildAppBarHeader(BuildContext context, String title) {
   final isDarkMode = Theme.of(context).brightness == Brightness.dark;
   final icon = MdiIcons.moonWaningCrescent;
 
   return AppBar(
-    leading: BackButton(),
     backgroundColor: Colors.blue,
     elevation: 0,
     title: Text(title),
