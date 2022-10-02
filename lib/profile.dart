@@ -1,13 +1,18 @@
-import 'package:babylonjs_viewer/babylonjs_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:goldenhack/charts/barGraph.dart';
 import 'package:goldenhack/charts/lineGraph.dart';
 import 'package:goldenhack/charts/progress.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:model_viewer_plus/model_viewer_plus.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
   const Profile({Key key}) : super(key: key);
 
+  @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +27,13 @@ class Profile extends StatelessWidget {
           ),
         ),
         body: Padding(
-          padding: EdgeInsets.all(20),
-          child: BabylonJSViewer(
-            src: 'https://models.babylonjs.com/boombox.glb',
-          ),
-        ));
+            padding: EdgeInsets.all(20),
+            child: ModelViewer(
+              src: 'assets/Xbot.glb',
+              backgroundColor: Colors.red,
+              autoPlay: true,
+              autoRotate: true,
+              ar: true,
+            )));
   }
 }
