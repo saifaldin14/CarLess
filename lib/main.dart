@@ -4,6 +4,7 @@ import 'package:goldenhack/directions_repository.dart';
 import 'package:goldenhack/slidingView.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:simple_progress_indicators/simple_progress_indicators.dart';
 
 void main() {
   runApp(MyApp());
@@ -89,8 +90,23 @@ class _MapScreenState extends State<MapScreen> {
         ],
       ),
       body: SlidingUpPanel(
-        panel: Stack(
-          children: [SlidingView()],
+        panel: Column(
+          children: [
+            SlidingView(),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: ProgressBar(
+                value: 0.7,
+                width: MediaQuery.of(context).size.width,
+                height: 30,
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.yellowAccent, Colors.deepOrange],
+                ),
+              ),
+            ),
+          ],
         ),
         body: Stack(
           alignment: Alignment.center,
