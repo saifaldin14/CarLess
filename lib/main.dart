@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:goldenhack/charts/progress.dart';
 import 'package:goldenhack/directions_model.dart';
 import 'package:goldenhack/directions_repository.dart';
+import 'package:goldenhack/pages/games.dart';
 import 'package:goldenhack/pages/profile.dart';
 import 'package:goldenhack/pages/profileAvatar.dart';
 import 'package:goldenhack/slidingView.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         builder: (context) => MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: myTheme,
-          title: 'Car-Less',
+          title: 'CarLess',
           home: MapScreen(),
         ),
       ),
@@ -70,78 +71,111 @@ class _MapScreenState extends State<MapScreen> {
         builder: (context) => Scaffold(
           appBar: buildAppBarHeader(context, 'CarLess'),
           body: SlidingUpPanel(
-            panel: Column(
-              children: [
-                Row(
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (ctx) => Profile()));
-                        },
-                        icon: Icon(Icons.person)),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(15),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.search),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              filled: true,
-                              hintStyle: TextStyle(color: Colors.grey[800]),
-                              hintText: "Type in your text",
-                              fillColor: Colors.white70),
+            parallaxEnabled: true,
+            maxHeight: 600,
+            panel: Container(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (ctx) => Profile()));
+                          },
+                          iconSize: 40,
+                          icon: Icon(Icons.person)),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(15),
+                          child: TextField(
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.search),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                filled: true,
+                                hintStyle: TextStyle(color: Colors.grey[800]),
+                                hintText: "Type in your text",
+                                fillColor: Colors.white70),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: Padding(
-                        padding: EdgeInsets.all(15),
-                        child: Column(
-                          children: [
-                            Text(
-                              'Favourite Places',
-                              style: TextStyle(fontSize: 20.0),
-                            ),
-                            SlidingView()
-                          ],
-                        ))),
-                Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: Padding(
-                        padding: EdgeInsets.all(15),
-                        child: Column(children: [
-                          GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                      builder: (context) => Stats()),
-                                );
-                              },
+                    ],
+                  ),
+                  Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      child: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Column(children: [
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                        builder: (context) => Stats()),
+                                  );
+                                },
+                                child: Text(
+                                  'Current Level: 5',
+                                  style: TextStyle(fontSize: 20.0),
+                                )),
+                            ProgressBarGradient(),
+                            Align(
+                              alignment: Alignment.centerRight,
                               child: Text(
-                                'Current Level: 5',
-                                style: TextStyle(fontSize: 20.0),
-                              )),
-                          ProgressBarGradient(),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: Text(
-                              '600 / 750 points',
-                              textAlign: TextAlign.right,
-                              style: TextStyle(fontSize: 15.0),
+                                '600 / 750 points',
+                                textAlign: TextAlign.right,
+                                style: TextStyle(fontSize: 15.0),
+                              ),
                             ),
-                          ),
-                        ]))),
-              ],
+                          ]))),
+                  Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      child: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              Text(
+                                'Favourite Places',
+                                style: TextStyle(fontSize: 20.0),
+                              ),
+                              SlidingView()
+                            ],
+                          ))),
+                  Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      child: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              Text(
+                                'Games from Chinatown to Union Square',
+                                style: TextStyle(fontSize: 20.0),
+                              ),
+                              Align(
+                                alignment: Alignment.centerRight,
+                                child: IconButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (ctx) => Games()));
+                                  },
+                                  icon: Icon(Icons.add),
+                                  iconSize: 40,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ],
+                          ))),
+                ],
+              ),
             ),
             body: Stack(
               alignment: Alignment.center,

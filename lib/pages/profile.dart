@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:goldenhack/model/user.dart';
 import 'package:goldenhack/pages/edit_profile_page.dart';
+import 'package:goldenhack/pages/profileAvatar.dart';
 import 'package:goldenhack/utils/user_preferences.dart';
 import 'package:goldenhack/widget/appbar_widget.dart';
 import 'package:goldenhack/widget/button_widget.dart';
@@ -68,8 +69,15 @@ class _ProfileState extends State<Profile> {
       );
 
   Widget buildUpgradeButton() => ButtonWidget(
-        text: 'Upgrade To PRO',
-        onClicked: () {},
+        text: 'View Avatar',
+        onClicked: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (ctx) => ProfileAvatar(
+                      assetPath: 'assets/cute2.glb',
+                      assetName: 'Smiley Blues')));
+        },
       );
 
   Widget buildAbout(User user) => Container(
