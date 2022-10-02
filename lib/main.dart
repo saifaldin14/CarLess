@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:goldenhack/charts/progress.dart';
 import 'package:goldenhack/directions_model.dart';
 import 'package:goldenhack/directions_repository.dart';
+import 'package:goldenhack/profile.dart';
 import 'package:goldenhack/slidingView.dart';
 import 'package:goldenhack/stats.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -97,7 +98,12 @@ class _MapScreenState extends State<MapScreen> {
           children: [
             Row(
               children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.person)),
+                IconButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (ctx) => Profile()));
+                    },
+                    icon: Icon(Icons.person)),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(20),
