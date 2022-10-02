@@ -23,35 +23,38 @@ class _EditProfilePageState extends State<EditProfilePage> {
         child: Builder(
           builder: (context) => Scaffold(
             appBar: buildAppBar(context, 'Edit Profile'),
-            body: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 32),
-              physics: BouncingScrollPhysics(),
-              children: [
-                ProfileWidget(
-                  imagePath: user.imagePath,
-                  isEdit: true,
-                  onClicked: () async {},
-                ),
-                const SizedBox(height: 24),
-                TextFieldWidget(
-                  label: 'Full Name',
-                  text: user.name,
-                  onChanged: (name) {},
-                ),
-                const SizedBox(height: 24),
-                TextFieldWidget(
-                  label: 'Email',
-                  text: user.email,
-                  onChanged: (email) {},
-                ),
-                const SizedBox(height: 24),
-                TextFieldWidget(
-                  label: 'About',
-                  text: user.about,
-                  maxLines: 5,
-                  onChanged: (about) {},
-                ),
-              ],
+            body: Padding(
+              padding: EdgeInsets.all(20),
+              child: ListView(
+                padding: EdgeInsets.symmetric(horizontal: 32),
+                physics: BouncingScrollPhysics(),
+                children: [
+                  ProfileWidget(
+                    imagePath: user.imagePath,
+                    isEdit: true,
+                    onClicked: () async {},
+                  ),
+                  const SizedBox(height: 24),
+                  TextFieldWidget(
+                    label: 'Full Name',
+                    text: user.name,
+                    onChanged: (name) {},
+                  ),
+                  const SizedBox(height: 24),
+                  TextFieldWidget(
+                    label: 'Email',
+                    text: user.email,
+                    onChanged: (email) {},
+                  ),
+                  const SizedBox(height: 24),
+                  TextFieldWidget(
+                    label: 'About',
+                    text: user.about,
+                    maxLines: 5,
+                    onChanged: (about) {},
+                  ),
+                ],
+              ),
             ),
           ),
         ),

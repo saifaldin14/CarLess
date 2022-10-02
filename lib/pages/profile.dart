@@ -23,26 +23,30 @@ class _ProfileState extends State<Profile> {
       child: Builder(
         builder: (context) => Scaffold(
           appBar: buildAppBar(context, 'Profile'),
-          body: ListView(
-            physics: BouncingScrollPhysics(),
-            children: [
-              ProfileWidget(
-                imagePath: user.imagePath,
-                onClicked: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => EditProfilePage()),
-                  );
-                },
-              ),
-              const SizedBox(height: 24),
-              buildName(user),
-              const SizedBox(height: 24),
-              Center(child: buildUpgradeButton()),
-              const SizedBox(height: 24),
-              NumbersWidget(),
-              const SizedBox(height: 48),
-              buildAbout(user),
-            ],
+          body: Padding(
+            padding: EdgeInsets.all(20),
+            child: ListView(
+              physics: BouncingScrollPhysics(),
+              children: [
+                ProfileWidget(
+                  imagePath: user.imagePath,
+                  onClicked: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (context) => EditProfilePage()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 24),
+                buildName(user),
+                const SizedBox(height: 24),
+                Center(child: buildUpgradeButton()),
+                const SizedBox(height: 24),
+                NumbersWidget(),
+                const SizedBox(height: 48),
+                buildAbout(user),
+              ],
+            ),
           ),
         ),
       ),
