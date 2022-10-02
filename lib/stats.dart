@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:goldenhack/graph.dart';
+import 'package:goldenhack/charts/barGraph.dart';
+import 'package:goldenhack/charts/lineGraph.dart';
+import 'package:goldenhack/charts/progress.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class Stats extends StatelessWidget {
@@ -18,6 +20,10 @@ class Stats extends StatelessWidget {
             },
           ),
         ),
-        body: Center(child: LineChartSample2()));
+        body: Column(children: [
+          ProgressBarGradient(),
+          LineChartSample2(),
+          BarChartSample7()
+        ]));
   }
 }

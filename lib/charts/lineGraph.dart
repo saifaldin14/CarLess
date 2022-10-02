@@ -25,9 +25,9 @@ class _LineChartSample2State extends State<LineChartSample2> {
           child: Container(
             decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(18),
+                  Radius.circular(10),
                 ),
-                color: Color(0xff232d37)),
+                color: Colors.white70),
             child: Padding(
               padding: const EdgeInsets.only(
                   right: 18.0, left: 12.0, top: 24, bottom: 12),
@@ -47,11 +47,12 @@ class _LineChartSample2State extends State<LineChartSample2> {
               });
             },
             child: Text(
-              'avg',
+              'Avg',
               style: TextStyle(
                   fontSize: 12,
-                  color:
-                      showAvg ? Colors.white.withOpacity(0.5) : Colors.white),
+                  color: showAvg
+                      ? const Color(0xff23b6e6).withOpacity(0.5)
+                      : const Color(0xff02d39a)),
             ),
           ),
         ),
@@ -83,7 +84,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
 
     return SideTitleWidget(
       axisSide: meta.axisSide,
-      space: 8.0,
+      space: 4.0,
       child: text,
     );
   }
@@ -181,7 +182,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
           ),
-          barWidth: 5,
+          barWidth: 2,
           isStrokeCapRound: true,
           dotData: FlDotData(
             show: false,

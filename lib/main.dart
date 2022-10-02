@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:goldenhack/charts/progress.dart';
 import 'package:goldenhack/directions_model.dart';
 import 'package:goldenhack/directions_repository.dart';
 import 'package:goldenhack/slidingView.dart';
@@ -122,19 +123,7 @@ class _MapScreenState extends State<MapScreen> {
                       context, MaterialPageRoute(builder: (ctx) => Stats()));
                 },
                 child: Text("Level")),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: ProgressBar(
-                value: 0.85,
-                width: MediaQuery.of(context).size.width,
-                height: 30,
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.yellowAccent, Colors.deepOrange],
-                ),
-              ),
-            ),
+            ProgressBarGradient()
           ],
         ),
         body: Stack(
