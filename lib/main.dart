@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:goldenhack/directions_model.dart';
 import 'package:goldenhack/directions_repository.dart';
 import 'package:goldenhack/slidingView.dart';
+import 'package:goldenhack/stats.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:simple_progress_indicators/simple_progress_indicators.dart';
@@ -115,10 +116,16 @@ class _MapScreenState extends State<MapScreen> {
               ],
             ),
             SlidingView(),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (ctx) => Stats()));
+                },
+                child: Text("Level")),
             Padding(
               padding: const EdgeInsets.all(20),
               child: ProgressBar(
-                value: 0.7,
+                value: 0.85,
                 width: MediaQuery.of(context).size.width,
                 height: 30,
                 gradient: LinearGradient(
